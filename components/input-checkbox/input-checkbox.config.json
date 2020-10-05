@@ -1,0 +1,8 @@
+{
+  "title": "Input Type Checkbox",
+  "context": {
+    "name": "name",
+    "id": "id",
+    "label": "Input Label"
+  }
+}
