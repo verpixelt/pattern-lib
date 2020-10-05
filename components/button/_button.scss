@@ -1,0 +1,18 @@
+.button {
+  --color: hsl(0, 0%, 15%);
+  --success: hsl(146, 24%, 54%);
+  --warning: hsl(11, 84%, 67%);
+
+  appearance: none;
+  background: none;
+  border: 2px solid currentColor;
+  color: var(--color);
+  font-size: 1.25em;
+  font-weight: 600;
+  padding: .5em .8em;
+  text-transform: uppercase;
+}
+
+.button--success { --color: var(--success); }
+
+.button--warning { --color: var(--warning); }

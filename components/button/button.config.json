@@ -1,0 +1,23 @@
+{
+  "title": "Button",
+  "context": {
+    "modifier": "default",
+    "message": "This is the default message"
+  },
+	"variants": [
+		{
+      "name": "warning",
+      "context": {
+        "modifier": "warning",
+        "message": "This is the warning message"
+      }
+		},
+		{
+      "name": "success",
+      "context": {
+        "modifier": "success",
+        "message": "This is the success message"
+      }
+		}
+	]
+}

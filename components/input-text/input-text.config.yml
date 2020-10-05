@@ -1,0 +1,5 @@
+title: Input Type Text
+context:
+    input-id: input-id
+    input-label: Input Label
+    input-placeholder: Enter Data
