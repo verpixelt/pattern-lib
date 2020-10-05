@@ -16,3 +16,7 @@
 .button--success { --color: var(--success); }
 
 .button--warning { --color: var(--warning); }
+
+.button[aria-pressed="true"] {
+  --color: hotpink;
+}

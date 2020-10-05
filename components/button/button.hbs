@@ -1,1 +1,10 @@
-<button class="button button--{{ modifier }}">{{ message }}</button>
+<button type="button" aria-pressed="true" class="button button--{{ modifier }}">{{ message }}</button>
+<script>
+  const toggle = document.querySelector('[aria-pressed]');
+  toggle.addEventListener('click', () => {
+    let pressed = toggle.getAttribute('aria-pressed') === 'true';
+    toggle.setAttribute('aria-pressed', !pressed);
+  });
+</script>
+
+{{!-- <script src="button.js"></script> --}}

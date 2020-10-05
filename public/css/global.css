@@ -17,6 +17,9 @@
 .button--warning {
   --color: var(--warning); }
 
+.button[aria-pressed="true"] {
+  --color: hotpink; }
+
 .input-text {
   display: inline-flex;
   flex-direction: column; }
