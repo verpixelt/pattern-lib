@@ -1,10 +1,11 @@
 
-const { series } = require('gulp');
+const { series, src, dest } = require('gulp');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
 const fractal = require('./fractal.config.js');
 const logger = fractal.cli.console;
+const concat = require('gulp-concat');
 
 const paths = {
   styles: {
@@ -13,18 +14,25 @@ const paths = {
   },
   stylesGlobal: {
     src: 'assets/scss/**/*.scss',
+  },
+  javascriptFiles: {
+    src: 'components/**/*.js',
+    dest: 'public/js',
   }
 }
 
 function style() {
-  return(
-    gulp
-      .src([paths.styles.src, paths.stylesGlobal.src])
-      .pipe(sassGlob())
-      .pipe(sass())
-      .on('error', sass.logError)
-      .pipe(gulp.dest(paths.styles.dest))
-  )
+  return src([paths.styles.src, paths.stylesGlobal.src])
+    .pipe(sassGlob())
+    .pipe(sass())
+    .on('error', sass.logError)
+    .pipe(gulp.dest(paths.styles.dest))
+}
+
+function js() {
+  return src(paths.javascriptFiles.src)
+    .pipe(concat('application.js'))
+    .pipe(dest(paths.javascriptFiles.dest));
 }
 
 function watch(cb) {
@@ -32,6 +40,7 @@ function watch(cb) {
   gulp.watch([
     paths.styles.src,
     paths.stylesGlobal.src], style);
+  gulp.watch(paths.javascriptFiles.src, js);
   cb()
 }
 
@@ -46,5 +55,6 @@ function fractalStart() {
   });
 }
 
+exports.js = js;
 exports.style = style;
 exports.default = series(fractalStart, watch);
