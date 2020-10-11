@@ -1,5 +1,5 @@
 
-const { parallel } = require('gulp');
+const { series } = require('gulp');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const sassGlob = require('gulp-sass-glob');
@@ -27,11 +27,12 @@ function style() {
   )
 }
 
-function watch() {
+function watch(cb) {
   style();
   gulp.watch([
     paths.styles.src,
     paths.stylesGlobal.src], style);
+  cb()
 }
 
 function fractalStart() {
@@ -46,4 +47,4 @@ function fractalStart() {
 }
 
 exports.style = style;
-exports.default = parallel(fractalStart, watch);
+exports.default = series(fractalStart, watch);
