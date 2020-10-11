@@ -1,24 +1,57 @@
-.button {
-  --color: hsl(0, 0%, 15%);
+:root {
+  --white: hsl(0, 0%, 100%);
+  --dark-shade: hsl(0, 0%, 5%);
+  --dark: hsl(0, 0%, 25%);
+  --dark-glare: hsl(0, 0%, 45%);
+  --success-shade: hsl(146, 24%, 44%);
   --success: hsl(146, 24%, 54%);
+  --success-glare: hsl(146, 24%, 64%);
+  --warning-shade: hsl(11, 84%, 57%);
   --warning: hsl(11, 84%, 67%);
+  --warning-glare: hsl(11, 84%, 77%); }
+
+.button {
+  --color: var(--dark);
   appearance: none;
   background: none;
   border: 2px solid currentColor;
   color: var(--color);
+  cursor: pointer;
   font-size: 1.25em;
   font-weight: 600;
   padding: .5em .8em;
   text-transform: uppercase; }
+  .button:hover, .button:focus, .button:active {
+    --color: var(--dark-glare); }
+  .button:visited {
+    --color: var(--dark-shade); }
 
 .button--success {
   --color: var(--success); }
+  .button--success:hover, .button--success:focus, .button--success:active {
+    --color: var(--success-glare); }
+  .button--success:visited {
+    --color: var(--success-shade); }
 
 .button--warning {
   --color: var(--warning); }
+  .button--warning:hover, .button--warning:focus, .button--warning:active {
+    --color: var(--warning-glare); }
+  .button--warning:visited {
+    --color: var(--warning-shade); }
 
 .button[aria-pressed="true"] {
-  --color: hotpink; }
+  --color: hsl(0, 0%, 100%);
+  background-color: var(--dark-shade);
+  border-color: var(--dark-shade); }
+
+.button--success[aria-pressed="true"] {
+  background-color: var(--success-shade);
+  border-color: var(--success-shade); }
+
+.button--warning[aria-pressed="true"] {
+  background-color: var(--warning-shade);
+  border-color: var(--warning-shade); }
 
 .input-text {
   display: inline-flex;
