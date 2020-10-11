@@ -1,5 +1,6 @@
-const toggle = document.querySelector('[aria-pressed]');
-toggle.addEventListener('click', () => {
-  let pressed = toggle.getAttribute('aria-pressed') === 'true';
-  toggle.setAttribute('aria-pressed', !pressed);
+const toggleAriaPressed = document.querySelector('[aria-pressed]');
+
+toggleAriaPressed.addEventListener('click', () => {
+  let ariaPressed = toggleAriaPressed.getAttribute('aria-pressed') === 'true';
+  toggleAriaPressed.setAttribute('aria-pressed', !ariaPressed);
 });
